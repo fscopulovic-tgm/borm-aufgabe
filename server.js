@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const pwHash = require('password-hash');
 const app = express();
 
 const MongoClient = require('mongodb').MongoClient
@@ -9,19 +10,19 @@ app.use(bodyParser.urlencoded({extended: true}))
 var db
 
 MongoClient.connect('mongodb://fscopulovic:BormAufgabe1@ds249025.mlab.com:49025/scopulovic-borm', (err, database) => {
-  if (err) return console.log(err)
-  db = database
-  app.listen(3000, () => {
-    console.log('server started at localhost:3000')
-  })
+	if (err) return console.log(err)
+		db = database
+		app.listen(3000, () => {
+			console.log('server started at localhost:3000')
+  	})
 })
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/views/login.html')
+	res.sendFile(__dirname + '/views/login.html')
 })
 
 app.get('/signup', (req, res) => {
-  res.sendFile(__dirname + '/views/signup.html')
+	res.sendFile(__dirname + '/views/signup.html')
 })
 
 app.post('/login', (req, res) => {
@@ -30,7 +31,9 @@ app.post('/login', (req, res) => {
 })
 
 app.post('/createUser', (req, res) => {
-  db.collection('users').save(req.body, (err, result) => {
+	var newuser = req.body
+	newuser['pw'] = pwHash.generate(newuser['pw'])
+	db.collection('users').save(newuser, (err, result) => {
     if (err) return console.log(err)
 
     console.log('Saved to the database')
