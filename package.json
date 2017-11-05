@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/fscopulovic-tgm/borm-aufgabe/issues"
   },
-  "homepage": "https://github.com/fscopulovic-tgm/borm-aufgabe#readme"
+  "homepage": "https://github.com/fscopulovic-tgm/borm-aufgabe#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
