@@ -1,11 +1,10 @@
 {
-  "name": "scopulovic_borm-aufgabe",
+  "name": "scopulovic-borm-aufgabe",
   "version": "1.0.0",
-  "description": "",
+  "description": "SYT Aufgabe Sem9: Distributed Computing GK9.3 \"Cloud-Datenmanagement\" (BORM)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,14 +15,5 @@
   "bugs": {
     "url": "https://github.com/fscopulovic-tgm/borm-aufgabe/issues"
   },
-  "homepage": "https://github.com/fscopulovic-tgm/borm-aufgabe#readme",
-  "dependencies": {
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mongodb": "^2.2.33",
-    "password-hash": "^1.2.2"
-  },
-  "devDependencies": {
-    "nodemon": "^1.12.1"
-  }
+  "homepage": "https://github.com/fscopulovic-tgm/borm-aufgabe#readme"
 }
