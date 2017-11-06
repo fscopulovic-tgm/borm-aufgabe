@@ -18,30 +18,31 @@ module.exports = (passport) => {
 
   passport.use('signup', new localStrategy({
        // by default, local strategy uses username and password, we will override with email
-       usernameField : 'username',
-       emailField : 'email',
+       usernameField : 'email',
        passwordField : 'password',
        passReqToCallback : true
    },
-   (req, username, email, password, done) => {
+   (req, email, password, done) => {
+     if (!(~email.indexOf("@"))) {
+       return done(null, false, req.flash('signupMessage', 'Invalide email adress'))
+     } else {
      process.nextTick(() => {
-       User.findOne({ 'username' : username, 'email' : email }, (err, user) => {
+       User.findOne({'email' : email }, (err, user) => {
          // if there are any errors, return the error
-         console.log(done);
          if (err)
             return done(err);
 
          // check to see if theres already a user with that email
          if (user) {
-           return done(null, false, req.flash('signupMessage', 'That email or the username is already taken.'));
+           return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
          } else {
-           // if there is no user with that email
-           // create the user
+          // if there is no user with that email
+          // create the user
            var newUser = new User();
 
            // set the user's local credentials
-           newUser.username = username;
            newUser.email    = email;
+           newUser.username = req.body['username']
            newUser.password = newUser.generateHash(password);
 
            // save the user
@@ -52,5 +53,6 @@ module.exports = (passport) => {
          }
         });
       });
+    }
     }));
  };
