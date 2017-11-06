@@ -1,6 +1,6 @@
 // Handles all routes in the app
 
-module.exports = function(app, passport) {
+module.exports = (app, passport) => {
 
     app.get('/', (req, res) => {
       res.render('index.ejs');
@@ -27,6 +27,12 @@ module.exports = function(app, passport) {
         req.logout();
         res.redirect('/');
     });
+
+    app.post('/signup', passport.authenticate('signup', {
+        successRedirect : '/profile', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
 };
 
 function isLoggedIn(req, res, next) {

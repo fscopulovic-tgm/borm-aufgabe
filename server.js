@@ -17,7 +17,7 @@ var configDB = require('./configs/database.js');
 // configuration ===============================================================
 mongoose.connect(configDB.url, {useMongoClient: true}); // connect to our database with the option to use the mongoClient
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./configs/passport')(passport); // pass passport for configuration
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
