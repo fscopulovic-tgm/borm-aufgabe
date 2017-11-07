@@ -2,12 +2,26 @@
 <!doctype html>
 <html>
   <head>
-    <title></title>
+    <title><%= user.name %></title>
   </head>
   <body>
-    <div>
-      <div>
-        <h1>Welcome!</h1>
-        Hola
+        <div>
+          <h1>Hola <%= user.name %>!</h1>
+          <h2>Hope you have a good day :^) <h2>
+        </div>
+        <div>
+            <div>
+                <h3>information about your profile</h3>
+                    <p>
+                        <strong>ID</strong>: <%= user._id %><br>
+                        <strong>Username</strong>: <%= user.name %><br>
+                        <strong>E-Mail</strong>: <%= user.email %><br>
+                        <strong>Password</strong>: <%= user.password %>
+                      </p>
+            </div>
+        </div>
+        <div>
+          <a href="/logout">Logout</a>
+        </div>
   </body>
 </html>
