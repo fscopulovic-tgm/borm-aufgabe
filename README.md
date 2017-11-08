@@ -1,8 +1,9 @@
 # Sem9: Distributed Computing GK9.3 "Cloud-Datenmanagement" (BORM)
 ## Requirements
 - [Node JS and NPM](https://docs.npmjs.com/getting-started/installing-node)
-## Installation and Starting the application
+## Installation
 - Clone or download [this repository](https://github.com/fscopulovic-tgm/borm-aufgabe)
+## Starting the application
 - Open the folder of the repository with your console
 - Start the application with the command **npm start**
-- If you want to enable testing just type the command **npm test**
+- Test the application with the command **npm test**
