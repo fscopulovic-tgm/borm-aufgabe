@@ -4,7 +4,7 @@
   "description": "SYT Aufgabe Sem9: Distributed Computing GK9.3 \"Cloud-Datenmanagement\" (BORM)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine-node testing",
     "dev": "nodemon server.js"
   },
   "repository": {
