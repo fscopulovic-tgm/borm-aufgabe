@@ -4,7 +4,7 @@
   "description": "SYT Aufgabe Sem9: Distributed Computing GK9.3 \"Cloud-Datenmanagement\" (BORM)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha testing",
+    "test": "jest --coverage",
     "dev": "SET NODE_ENV=dev && nodemon server.js",
     "start": "node server.js"
   },
