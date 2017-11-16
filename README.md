@@ -4,6 +4,7 @@
 - A Internet connection so the application can connect to the database
 ## Installation
 - Clone or download [this repository](https://github.com/fscopulovic-tgm/borm-aufgabe)
+- Install the dependencies by typing 'npm install'
 ## Starting the application
 - Open the folder of the repository with your console
 - Start the application with the command **npm start**
