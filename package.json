@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "SET NODE_ENV=dev && nodemon server.js",
+    "dev": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -27,7 +27,6 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "flash": "^1.1.0",
-    "fs": "0.0.1-security",
     "method-override": "^2.3.10",
     "mongodb": "^2.2.33",
     "mongoose": "^4.13.0",
