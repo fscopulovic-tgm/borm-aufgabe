@@ -8,30 +8,35 @@ describe('GET methods', function() {
   it('GET / should return status code 200', function() {
     request.get(base_url + '/', function(error, response, body) {
       except(response.statusCode).toBe(200);
+      done();
     });
   });
 
   it('GET /signup should return status code 200', function() {
     request.get(base_url + '/signup', function(error, response, body) {
       except(response.statusCode).toBe(200);
+      done();
     });
   });
 
   it('GET /login should return status code 200', function() {
     request.get(base_url + '/login', function(error, response, body) {
       except(response.statusCode).toBe(200);
+      done();
     });
   });
 
   it('GET /profile should return status code 200',function() {
     request.get(base_url + '/profile', function(error, response, body) {
       except(response.statusCode).toBe(200);
+      done();
     });
   });
 
   it('GET /logout should return status code 200', function() {
     request.get(base_url + '/logout', function(error, response, body) {
       except(response.statusCode).toBe(200);
+      done();
     });
   });
 });
@@ -41,8 +46,9 @@ describe('POST methods', function() {
     superagent.post(base_url + '/login')
               .send({ email: 'test@user', password: 'abc'})
               .end(function(error, res) {
-                console.log(res);
+                except(routes.isLoggedIn())
     });
+    done();
   });
 
   it('POST /signup should return status code 200', function() {
@@ -51,6 +57,7 @@ describe('POST methods', function() {
               .end(function(error, res) {
                 console.log(res);
    });
+   done();
   });
 });
 
