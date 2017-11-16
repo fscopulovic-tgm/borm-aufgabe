@@ -7,5 +7,5 @@
 2. Install the dependencies by typing `npm install`
 ## Starting the application
 1. Open the folder of the repository with your console
-2. Start the application with the command **npm start**
-3. Test the application with the command **npm test**
+2. Start the application with the command `npm start`
+3. Test the application with the command `npm test`
