@@ -4,7 +4,7 @@
   "description": "SYT Aufgabe Sem9: Distributed Computing GK9.3 \"Cloud-Datenmanagement\" (BORM)",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "echo \"Testing is done with postman\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js"
   },
@@ -36,9 +36,6 @@
     "request": "^2.83.0"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "jest": "^21.2.1",
-    "nodemon": "^1.12.1",
-    "superagent": "^3.8.1"
+    "nodemon": "^1.12.1"
   }
 }
