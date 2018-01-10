@@ -17,3 +17,8 @@ userSchema.methods.validPassword = function(password) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
+// user = {'username': bla, 'password': SHA512, 'email': email@bla.com}
+// message = {'text': bla} ist verbunden mit user message x-->User und mit message-->1recipients
+// group = {'name': bla} ist verbunden 0..*group<-->1..*user
+// recipients = {} verbunden mit x-->0..*user und x-->0..*group
