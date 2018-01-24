@@ -1,4 +1,7 @@
-// Config file for the database which holds the link to the MongoDB database
+// Config file for the database which holds the link and user data for couchbase
 module.exports = {
-    'url' : 'mongodb://fscopulovic:BormAufgabe1@ds249025.mlab.com:49025/scopulovic-borm'
+    'url'         : 'couchbase://localhost:8091/',
+    'USERNAME'    : 'Administrator',
+    'PASSWORD'    : 'Filip1202'
+    'bucketname'  : 'users'
 };

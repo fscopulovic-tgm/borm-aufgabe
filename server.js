@@ -1,13 +1,12 @@
 // COPIED THIS server.js FILE FROM THE TUTORIAL https://scotch.io/tutorials/easy-node-authentication-setup-and-local
 // Only changed port and the secret for the session, otherwise it is the same file
-var express  = require('express');
-var app      = express();
-var port     = process.env.PORT || 3000;
-var mongoose = require('mongoose');
-var passport = require('passport');
-var flash    = require('connect-flash');
+var express   = require('express');
+var app       = express();
+var port      = process.env.PORT || 3000;
+var couchbase = require('couchbase');
+var passport  = require('passport');
+var flash     = require('connect-flash');
 
-var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
@@ -15,7 +14,9 @@ var session      = require('express-session');
 var configDB = require('./configs/database.js');
 
 // configuration ===============================================================
-mongoose.connect(configDB.url, {useMongoClient: true}); // connect to our database with the option to use the mongoClient
+var cluster = new couchbase.Cluster(configDB.url)
+cluster.authenticate(configDB.USERNAME, configDB.PASSWORD);
+var bucket = cluster.openBucket(configDB.bucketname);
 
 require('./configs/passport')(passport); // pass passport for configuration
 
