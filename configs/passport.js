@@ -1,7 +1,7 @@
 // Handles the login and sign up
 
 var localStrategy = require('passport-local').Strategy;
-var User = require('../app/models/user');
+var User = require('../app/models/user.js');
 
 module.exports = (passport) => {
 
@@ -31,25 +31,12 @@ module.exports = (passport) => {
          // if there are any errors, return the error
          if (err)
             return done(err);
-
          // check to see if theres already a user with that email
          if (user) {
            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
          } else {
-          // if there is no user with that email
-          // create the user
-           var newUser = new User();
-
            // set the user's local credentials
-           newUser.email    = email;
-           newUser.name = req.body['username']
-           newUser.password = newUser.generateHash(password);
-
-           // save the user
-           newUser.save((err) => {
-             if (err) throw err;
-             return done(null, newUser)
-          });
+           User.addUser(email, req.body['username'], User.generateHash(password))
          }
         });
       });

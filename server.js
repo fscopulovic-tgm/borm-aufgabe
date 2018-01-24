@@ -3,7 +3,6 @@
 var express   = require('express');
 var app       = express();
 var port      = process.env.PORT || 3000;
-var couchbase = require('couchbase');
 var passport  = require('passport');
 var flash     = require('connect-flash');
 
@@ -11,12 +10,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-var configDB = require('./configs/database.js');
+var database = require('./configs/database.js');
 
 // configuration ===============================================================
-var cluster = new couchbase.Cluster(configDB.url)
-cluster.authenticate(configDB.USERNAME, configDB.PASSWORD);
-var bucket = cluster.openBucket(configDB.bucketname);
 
 require('./configs/passport')(passport); // pass passport for configuration
 
