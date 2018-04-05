@@ -2,7 +2,7 @@
 
 module.exports = (app, passport) => {
 
-    pp.get('/', (req, res) => {
+    app.get('/', (req, res) => {
       res.render('index.ejs');
     })
 
